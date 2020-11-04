@@ -28,6 +28,7 @@ end_page = 10
 URL = f"https://www.monster.com/jobs/search/?q=Software-Developer&where=New-York&stpage=1&page={end_page}"
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
+
 results = soup.find(class_='mux-search-results')
 job_elems = results.find_all(class_='flex-row')
 for job_elem in job_elems:
